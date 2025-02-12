@@ -6,7 +6,7 @@ import { format } from "timeago.js";
 
 const fetchPost = async () => {
   const res = await axios.get(
-    `${import.meta.env.VITE_API_URL}/posts?featured=true&limit=4&sort=newest`
+    `https://blog-app-backend-2.vercel.app/posts?featured=true&limit=4&sort=newest`
   );
   return res.data;
 };

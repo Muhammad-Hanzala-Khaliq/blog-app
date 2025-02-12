@@ -9,7 +9,9 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
 
 const fetchPost = async (slug) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts/${slug}`);
+  const res = await axios.get(
+    `https://blog-app-backend-2.vercel.app/posts/${slug}`
+  );
   return res.data
 }
 

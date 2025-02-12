@@ -4,7 +4,9 @@ import { toast } from 'react-toastify'
 
 const authenticator =  async () => {
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/posts/upload-auth`);
+        const response = await fetch(
+          `https://blog-app-backend-2.vercel.app/posts/upload-auth`
+        );
   
         if (!response.ok) {
             const errorText = await response.text();

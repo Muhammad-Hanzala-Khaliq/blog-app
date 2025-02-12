@@ -8,8 +8,8 @@ import { useSearchParams } from "react-router-dom";
 const fetchPost = async (pageParam,searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams]);
   console.log(searchParamsObj)
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts`,{
-    params:{page:pageParam,limit:10,...searchParamsObj},
+  const res = await axios.get(`https://blog-app-backend-2.vercel.app/posts`, {
+    params: { page: pageParam, limit: 10, ...searchParamsObj },
   });
   return res.data
 }

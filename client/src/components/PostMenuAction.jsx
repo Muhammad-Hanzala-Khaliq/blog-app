@@ -17,7 +17,7 @@ const PostMenuAction = ({ post }) => {
     queryKey: ["savedPosts"],
     queryFn: async () => {
       const token = await getToken();
-      return axios.get(`${import.meta.env.VITE_API_URL}/users/saved`, {
+      return axios.get(`https://blog-app-backend-2.vercel.app/users/saved`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -31,11 +31,14 @@ const PostMenuAction = ({ post }) => {
   const deleteMutation = useMutation({
     mutationFn: async () => {
       const token = await getToken();
-      return axios.delete(`${import.meta.env.VITE_API_URL}/posts/${post._id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      return axios.delete(
+        `https://blog-app-backend-2.vercel.app/posts/${post._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
     },
     onSuccess: () => {
       toast.success("Post deleted successfully!");
@@ -52,7 +55,7 @@ const PostMenuAction = ({ post }) => {
     mutationFn: async () => {
       const token = await getToken();
       return axios.patch(
-        `${import.meta.env.VITE_API_URL}/users/save`,
+        `https://blog-app-backend-2.vercel.app/users/save`,
         {
           postId: post._id,
         },
@@ -75,7 +78,7 @@ const PostMenuAction = ({ post }) => {
     mutationFn: async () => {
       const token = await getToken();
       return axios.patch(
-        `${import.meta.env.VITE_API_URL}/posts/feature`,
+        `https://blog-app-backend-2.vercel.app/posts/feature`,
         {
           postId: post._id,
         },

@@ -33,11 +33,15 @@ const Write = () => {
   const mutation = useMutation({
     mutationFn:async (newPost) =>{
       const token = await getToken()
-      return axios.post(`${import.meta.env.VITE_API_URL}/posts`,newPost,{
-        headers:{
-          Authorization:`Bearer ${token}`
+      return axios.post(
+        `https://blog-app-backend-2.vercel.app/posts`,
+        newPost,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
+      );
     },
 
     onSuccess:(res) =>{
