@@ -11,7 +11,12 @@ dotenv.config();
 
 
 const app = express();
-app.use(cors(process.env.CLIENT_URL))
+app.use(
+  cors({
+    origin: "https://blog-app-pjjv.vercel.app/",
+    credentials: true,
+  })
+);
 
 app.use('/webhooks',webhookRouter)
 
